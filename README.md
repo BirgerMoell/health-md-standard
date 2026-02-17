@@ -1,12 +1,19 @@
-# Health.md - Open Standard for LLM-Optimized Healthcare Data
+# EIR Format - Open Standard for LLM-Optimized Healthcare Data
 
-![Health.md Logo](assets/logo.svg)
+<img src="assets/logo.svg" alt="EIR Format Logo" width="400">
 
-**Version 1.0** | [Website](https://birgermoell.github.io/health-md-standard/) | [Specification](SPEC.md) | [Examples](examples/) | [Parser](parser/)
+[![GitHub](https://img.shields.io/badge/GitHub-eir--format--standard-blue?logo=github)](https://github.com/BirgerMoell/health-md-standard)
+[![Website](https://img.shields.io/badge/Website-Live-green)](https://birgermoell.github.io/health-md-standard/)
+[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
+[![MCP](https://img.shields.io/badge/MCP-Compatible-purple)](mcp-server/)
+
+**Version 1.0** | [Website](https://birgermoell.github.io/health-md-standard/) | [Specification](EIR-SPEC.md) | [Examples](examples/) | [MCP Server](mcp-server/)
+
+*Named after Eir, the Norse goddess of healing and medicine*
 
 ## 🎯 Mission
 
-Healthcare data is complex, sensitive, and crucial. **Health.md** defines an open standard for structuring healthcare information in a format optimized for Large Language Models while preserving privacy, accuracy, and clinical context.
+Healthcare data is complex, sensitive, and crucial. **EIR Format** defines an open YAML-based standard for structuring healthcare information optimized for Large Language Models while preserving privacy, accuracy, and clinical context.
 
 ## 🚀 Why Health.md?
 

@@ -389,8 +389,10 @@
     <!-- Header -->
     <header class="header">
         <div class="container">
-            <h1>🏥 Health.md</h1>
+            <img src="assets/logo.svg" alt="EIR Format Logo" style="height: 60px; margin-bottom: 1rem;">
+            <h1>EIR Format</h1>
             <p class="tagline">Open Standard for LLM-Optimized Healthcare Data</p>
+            <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem;">Named after Eir, the Norse goddess of healing and medicine</p>
             <div>
                 <span class="version">v1.0</span>
                 <span class="version">Open Source</span>
@@ -408,9 +410,9 @@
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
                 <li><a href="#example">Example</a></li>
+                <li><a href="validator.html">Validator</a></li>
                 <li><a href="#getting-started">Get Started</a></li>
                 <li><a href="https://github.com/BirgerMoell/health-md-standard">GitHub</a></li>
-                <li><a href="spec.html">Specification</a></li>
             </ul>
         </div>
     </nav>
@@ -419,11 +421,11 @@
     <section class="hero">
         <div class="container">
             <h2>Healthcare Data Deserves Better Standards</h2>
-            <p>Health.md defines an open standard for structuring healthcare information in a format optimized for Large Language Models while preserving privacy, accuracy, and clinical context.</p>
+            <p>EIR Format defines an open YAML-based standard for structuring healthcare information optimized for Large Language Models while preserving privacy, accuracy, and clinical context. Load directly into AI conversations via MCP servers.</p>
             
             <div class="cta-buttons">
                 <a href="https://github.com/BirgerMoell/health-md-standard" class="btn btn-primary">View on GitHub</a>
-                <a href="spec.html" class="btn btn-secondary">Read Specification</a>
+                <a href="validator.html" class="btn btn-secondary">Validate EIR Files</a>
                 <a href="#example" class="btn btn-secondary">See Example</a>
             </div>
         </div>
@@ -432,42 +434,42 @@
     <!-- Features Section -->
     <section class="features" id="features">
         <div class="container">
-            <h2>Why Health.md?</h2>
+            <h2>Why EIR Format?</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">🤖</div>
                     <h3>LLM-Optimized</h3>
-                    <p>Structured for perfect AI comprehension and reasoning. Clear semantic structure that LLMs can parse and understand contextually.</p>
+                    <p>YAML structure perfect for AI parsing and reasoning. Semantic sections that LLMs understand contextually for better healthcare conversations.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔌</div>
+                    <h3>MCP Compatible</h3>
+                    <p>Load directly into AI applications via Model Context Protocol. Drag & drop your .eir file into Claude, ChatGPT, and other MCP-enabled AIs.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">🔒</div>
                     <h3>Privacy-First</h3>
-                    <p>Built-in anonymization patterns, data sensitivity markers, and multiple privacy levels from anonymous to identified.</p>
+                    <p>Built-in anonymization patterns and multiple privacy levels. Control exactly what data is shared with AI applications.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">⚕️</div>
                     <h3>Clinical-Accurate</h3>
-                    <p>Preserves medical context, relationships, and clinical significance. Uses standard medical codes (ICD-10, SNOMED, LOINC).</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">📖</div>
-                    <h3>Human-Readable</h3>
-                    <p>Markdown format that clinicians and patients can read and edit directly. No proprietary formats or complex schemas.</p>
+                    <p>Preserves medical context and relationships. Uses standard medical codes (ICD-10, SNOMED, LOINC) for precise clinical information.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">🔄</div>
-                    <h3>Interoperable</h3>
-                    <p>Works across systems, platforms, and use cases. Easy to integrate with existing EHRs and health apps.</p>
+                    <h3>Extensible</h3>
+                    <p>Easy to add new sections for specialties, devices, or use cases. YAML structure naturally supports extensions and customizations.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">✅</div>
                     <h3>Validated</h3>
-                    <p>Built-in validation rules for clinical accuracy, data consistency, and privacy compliance.</p>
+                    <p>Schema validation ensures data consistency and clinical accuracy. Built-in validator for real-time error checking.</p>
                 </div>
             </div>
         </div>
@@ -476,43 +478,47 @@
     <!-- Example Section -->
     <section class="example" id="example">
         <div class="container">
-            <h2>See Health.md in Action</h2>
-            <p class="example-description">Here's a sample Health.md file showing how healthcare data is structured:</p>
+            <h2>See EIR Format in Action</h2>
+            <p class="example-description">Here's a sample EIR file showing how healthcare data is structured in YAML:</p>
             
             <div class="code-example">
-<span class="comment"># Health Record - Anonymous Patient 001</span>
+<span class="comment"># Electronic health Information Record (EIR) Format</span>
+<span class="keyword">metadata:</span>
+  format_version: <span class="string">"1.0"</span>
+  privacy_level: <span class="string">"anonymous"</span>
+  record_id: <span class="string">"anonymous-001"</span>
 
-<span class="keyword">## Demographics</span>
-- **Age Range:** 30-39
-- **Sex:** Female
-- **Occupation Category:** Technology
+<span class="keyword">patient:</span>
+  name: <span class="string">"Anonymous Patient 001"</span>
+  age: 34
+  sex: <span class="string">"female"</span>
+  occupation:
+    category: <span class="string">"Technology"</span>
 
-<span class="keyword">## Current Medications</span>
+<span class="keyword">current_medications:</span>
+  - name: <span class="string">"Metformin"</span>
+    strength: <span class="string">"500mg"</span>
+    dosage: <span class="string">"500mg twice daily"</span>
+    indication:
+      condition: <span class="string">"Type 2 Diabetes Mellitus"</span>
+      icd_10: <span class="string">"E11.9"</span>
+    started: <span class="string">"2024-01-15"</span>
+    clinical_notes: <span class="string">"Well tolerated, excellent control"</span>
 
-<span class="keyword">### Metformin 500mg</span>
-- **Indication:** Type 2 Diabetes Mellitus (ICD-10: E11.9)
-- **Dosage:** 500mg twice daily with meals
-- **Started:** 2024-01-15
-- **Clinical Notes:** Well tolerated, excellent glycemic control
-
-<span class="keyword">## Lab Results</span>
-
-<span class="keyword">### Hemoglobin A1C</span>
-- **2024-02-10:** 6.8% (↓ from 8.2%)
-- **Reference Range:** <7.0% (ADA target for diabetes)
-- **Clinical Significance:** Excellent improvement in glycemic control
-
-<span class="keyword">## Clinical Timeline</span>
-
-<span class="keyword">### 2024-02-10: Diabetes Follow-up</span>
-- **Provider:** Endocrinologist
-- **Assessment:** Excellent glycemic control, continue current therapy
-- **Plan:** Continue Metformin, recheck HbA1c in 3 months
+<span class="keyword">lab_results:</span>
+  glucose_metabolism:
+    - test_name: <span class="string">"Hemoglobin A1C"</span>
+      results:
+        - date: <span class="string">"2024-02-10"</span>
+          value: 6.8
+          unit: <span class="string">"%"</span>
+          reference_range: <span class="string">"<7.0"</span>
+          trend: <span class="string">"decreasing"</span>
             </div>
             
             <div class="cta-buttons">
                 <a href="https://github.com/BirgerMoell/health-md-standard/tree/main/examples" class="btn btn-primary">View More Examples</a>
-                <a href="parser.html" class="btn btn-secondary">Try the Parser</a>
+                <a href="validator.html" class="btn btn-secondary">Validate EIR Files</a>
             </div>
         </div>
     </section>
@@ -523,33 +529,33 @@
             <h2>Use Cases</h2>
             <div class="use-cases-grid">
                 <div class="use-case">
+                    <h3>🤖 AI Health Conversations</h3>
+                    <p>Load your .eir file into Claude, ChatGPT, or any MCP-compatible AI for natural health discussions.</p>
+                </div>
+                
+                <div class="use-case">
                     <h3>🩺 Clinical Decision Support</h3>
-                    <p>Structured data for AI diagnostic tools and clinical decision support systems.</p>
+                    <p>Structured data perfect for AI diagnostic tools and clinical decision support systems.</p>
                 </div>
                 
                 <div class="use-case">
-                    <h3>👤 Patient Portals</h3>
-                    <p>Human-readable health records that patients can understand and share.</p>
+                    <h3>🔄 Data Conversion</h3>
+                    <p>Convert from FHIR, HL7, or proprietary EHR formats to EIR for AI compatibility.</p>
                 </div>
                 
                 <div class="use-case">
-                    <h3>🔬 Research</h3>
-                    <p>Standardized datasets for health AI training and clinical research.</p>
+                    <h3>🔬 Research & Analytics</h3>
+                    <p>Privacy-aware datasets for health AI training and clinical research with built-in anonymization.</p>
                 </div>
                 
                 <div class="use-case">
-                    <h3>📱 Health Apps</h3>
-                    <p>Interoperable data format across platforms and applications.</p>
+                    <h3>📱 Personal Health Records</h3>
+                    <p>Patient-controlled health data that works seamlessly with AI health assistants.</p>
                 </div>
                 
                 <div class="use-case">
-                    <h3>💻 Telemedicine</h3>
-                    <p>Efficient information sharing between healthcare providers.</p>
-                </div>
-                
-                <div class="use-case">
-                    <h3>🏥 EHR Integration</h3>
-                    <p>Bridge between existing systems and modern AI applications.</p>
+                    <h3>🌍 Swedish Healthcare</h3>
+                    <p>Native support for 1177 Vårdguiden data and Swedish healthcare terminology.</p>
                 </div>
             </div>
         </div>
